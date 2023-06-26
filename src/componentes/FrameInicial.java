@@ -1,12 +1,10 @@
+package componentes;
 import java.awt.Container;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import componentes.PainelAluno;
-import componentes.PainelCurso;
-import componentes.PainelProfessor;
-public class Frame extends JPanel {
+public class FrameInicial extends JPanel {
     public JPanel telaInicial(Container Window) {
         JPanel painel = new JPanel();
         painel.setLayout(null);
@@ -15,6 +13,8 @@ public class Frame extends JPanel {
         PainelAluno painelAluno = new PainelAluno();
         PainelProfessor painelProfessor = new PainelProfessor();
         PainelCurso painelCurso = new PainelCurso();
+        PainelMateria painelMateria = new PainelMateria();
+        PainelTurma painelTurma = new PainelTurma();
 
         JButton cadastrarAluno = new JButton("Cadastrar Aluno");
         cadastrarAluno.setBounds(20, 20, 200, 200);
@@ -55,31 +55,31 @@ public class Frame extends JPanel {
         });
         painel.add(cadastrarCurso);
 
-        // JButton cadastrarProfessor = new JButton("Cadastrar Professor");
-        // cadastrarProfessor.setBounds(240, 20, 200, 200);
-        // cadastrarProfessor.addActionListener(new ActionListener() {
-        //     @Override
-        //     public void actionPerformed(java.awt.event.ActionEvent event) {
-        //             Window.add(painelProfessor.iniciaComponentProfessor(Window));
-        //             Window.remove(Window.getComponent(0));
-        //             Window.revalidate();
-        //             Window.repaint();
-        //     }
-        // });
-        // painel.add(cadastrarProfessor);
+        JButton cadastrarMateria = new JButton("Cadastrar Materia");
+        cadastrarMateria.setBounds(20, 240, 200, 200);
+        cadastrarMateria.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent event) {
+                    Window.add(painelMateria.iniciaComponentMateria(Window));
+                    Window.remove(Window.getComponent(0));
+                    Window.revalidate();
+                    Window.repaint();
+            }
+        });
+        painel.add(cadastrarMateria);
 
-        // JButton cadastrarProfessor = new JButton("Cadastrar Professor");
-        // cadastrarProfessor.setBounds(240, 20, 200, 200);
-        // cadastrarProfessor.addActionListener(new ActionListener() {
-        //     @Override
-        //     public void actionPerformed(java.awt.event.ActionEvent event) {
-        //             Window.add(painelProfessor.iniciaComponentProfessor(Window));
-        //             Window.remove(Window.getComponent(0));
-        //             Window.revalidate();
-        //             Window.repaint();
-        //     }
-        // });
-        // painel.add(cadastrarProfessor);
+        JButton cadastrarTurma = new JButton("Cadastrar Turma");
+        cadastrarTurma.setBounds(240, 240, 200, 200);
+        cadastrarTurma.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent event) {
+                    Window.add(painelTurma.iniciaComponentTurma(Window));
+                    Window.remove(Window.getComponent(0));
+                    Window.revalidate();
+                    Window.repaint();
+            }
+        });
+        painel.add(cadastrarTurma);
 
 
 

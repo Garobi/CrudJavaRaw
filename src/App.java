@@ -1,6 +1,8 @@
 import java.awt.Container;
 import javax.swing.JFrame;
 
+import componentes.FrameInicial;
+
 public class App extends JFrame{
 
     public App() {
@@ -9,7 +11,7 @@ public class App extends JFrame{
         setResizable(false);
         Container Window = getContentPane();
 
-        Frame frame = new Frame();
+        FrameInicial frame = new FrameInicial();
         Window.add(frame.telaInicial(Window));
 
         // JTabbedPane tabbedPane = new JTabbedPane();

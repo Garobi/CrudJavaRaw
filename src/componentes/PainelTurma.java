@@ -74,6 +74,21 @@ public class PainelTurma {
             }
         });
 
+        JButton retornarButton = new JButton("Retornar");
+        retornarButton.setBounds(10, 145, 320, 25);
+        painel.add(retornarButton);
+        retornarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                FrameInicial frameInicial = new FrameInicial();
+                Window.add(frameInicial.telaInicial(Window));
+                Window.remove(Window.getComponent(0));
+                Window.revalidate();
+                Window.repaint();
+
+            }
+        });
+
         return painel;
     }
 }

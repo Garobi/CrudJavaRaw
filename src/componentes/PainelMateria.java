@@ -11,12 +11,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import DAO.MateriaDAO;
 import entity.Materia;
 
 public class PainelMateria {
     Materia materia = new Materia();
-    public JPanel iniciaComponentMateria(Container Window){
 
+    public JPanel iniciaComponentMateria(Container Window){
         JPanel painel = new JPanel();
         painel.setLayout(null);
         painel.setBounds(0, 0, 800, 600);
@@ -58,6 +59,23 @@ public class PainelMateria {
                 materia.setNome(nomeTextField.getText());
                 materia.setDescricao(descricaoTextField.getText());
                 materia.setCargaHoraria(Integer.parseInt(cargaHorariaTextField.getText()));
+
+                new MateriaDAO().CadastrarMateria(materia);
+            }
+        });
+
+        JButton retornarButton = new JButton("Retornar");
+        retornarButton.setBounds(10, 145, 320, 25);
+        painel.add(retornarButton);
+        retornarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                FrameInicial frameInicial = new FrameInicial();
+                Window.add(frameInicial.telaInicial(Window));
+                Window.remove(Window.getComponent(0));
+                Window.revalidate();
+                Window.repaint();
+
             }
         });
 

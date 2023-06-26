@@ -1,5 +1,6 @@
 package componentes;
 import java.awt.Container;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -71,6 +72,21 @@ public class PainelCurso {
                 curso.setPreco(Float.parseFloat(cargaHorariaTextField.getText()));
 
                 new CursoDAO().CadastrarCurso(curso);
+            }
+        });
+
+        JButton retornarButton = new JButton("Retornar");
+        retornarButton.setBounds(10, 175, 320, 25);
+        painel.add(retornarButton);
+        retornarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                FrameInicial frameInicial = new FrameInicial();
+                Window.add(frameInicial.telaInicial(Window));
+                Window.remove(Window.getComponent(0));
+                Window.revalidate();
+                Window.repaint();
+
             }
         });
 
