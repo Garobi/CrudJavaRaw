@@ -8,7 +8,7 @@ public class FrameInicial extends JPanel {
   public JPanel telaInicial(Container Window) {
     JPanel painel = new JPanel();
     painel.setLayout(null);
-    painel.setBounds(0, 0, 800, 600);
+    painel.setBounds(0, 0, 800, 720);
 
     PainelAluno painelAluno = new PainelAluno();
     PainelProfessor painelProfessor = new PainelProfessor();
@@ -16,6 +16,8 @@ public class FrameInicial extends JPanel {
     PainelMateria painelMateria = new PainelMateria();
     PainelTurma painelTurma = new PainelTurma();
     PainelMatricularAluno painelMatricularAluno = new PainelMatricularAluno();
+    PainelRemoveAluno painelRemoveAluno = new PainelRemoveAluno();
+    PainelRemoveProfessor painelRemoveProfessor = new PainelRemoveProfessor();
 
     JButton cadastrarAluno = new JButton("Cadastrar Aluno");
     cadastrarAluno.setBounds(20, 20, 200, 200);
@@ -94,6 +96,33 @@ public class FrameInicial extends JPanel {
       }
     });
     painel.add(matricularAluno);
+
+    JButton removerAluno = new JButton("Remover Aluno");
+    removerAluno.setBounds(20, 460, 200, 200);
+    removerAluno.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(java.awt.event.ActionEvent event) {
+        Window.add(painelRemoveAluno.iniciaComponenteRemoveAluno(Window));
+        Window.remove(Window.getComponent(0));
+        Window.revalidate();
+        Window.repaint();
+      }
+    });
+    painel.add(removerAluno);
+
+    JButton removerProfessor = new JButton("Remover Professor");
+    removerProfessor.setBounds(240, 460, 200, 200);
+    removerProfessor.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(java.awt.event.ActionEvent event) {
+        Window.add(
+            painelRemoveProfessor.iniciaComponenteRemoveProfessor(Window));
+        Window.remove(Window.getComponent(0));
+        Window.revalidate();
+        Window.repaint();
+      }
+    });
+    painel.add(removerProfessor);
 
     return painel;
   }

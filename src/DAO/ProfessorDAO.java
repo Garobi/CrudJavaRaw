@@ -4,7 +4,6 @@ import conexao.conexao;
 import entity.Professor;
 import java.sql.PreparedStatement;
 
-
 public class ProfessorDAO {
   public void CadastrarProfessor(Professor professor) {
     String sql =
@@ -28,6 +27,23 @@ public class ProfessorDAO {
     } catch (Exception e) {
       // TODO: handle exception
       e.printStackTrace();
+    }
+  }
+
+  public void RemoverProfessor(Professor professor) {
+    String sql = "DELETE FROM professor WHERE idprofessor = ?";
+
+    PreparedStatement ps = null;
+
+    try {
+      ps = conexao.getConexao().prepareStatement(sql);
+
+      ps.setInt(1, professor.getIdProfessor());
+
+      ps.execute();
+      ps.close();
+    } catch (Exception e) {
+      // TODO: handle exception
     }
   }
 }

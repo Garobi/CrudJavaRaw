@@ -30,4 +30,21 @@ public class AlunoDAO {
       e.printStackTrace();
     }
   }
+
+  public void RemoverAluno(Aluno aluno) {
+    String sql = "DELETE FROM Aluno WHERE idAluno = ?";
+
+    PreparedStatement ps = null;
+
+    try {
+      ps = conexao.getConexao().prepareStatement(sql);
+
+      ps.setInt(1, aluno.getIdAluno());
+
+      ps.execute();
+      ps.close();
+    } catch (Exception e) {
+      // TODO: handle exception
+    }
+  }
 }

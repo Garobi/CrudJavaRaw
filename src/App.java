@@ -2,11 +2,10 @@ import componentes.FrameInicial;
 import java.awt.Container;
 import javax.swing.JFrame;
 
-
 public class App extends JFrame {
 
   public App() {
-    setSize(800, 600);
+    setSize(800, 720);
     setLayout(null);
     setResizable(false);
     Container Window = getContentPane();
