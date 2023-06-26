@@ -21,7 +21,7 @@ public class AlunoDAO {
             ps.setString(4, aluno.getEmail());
             ps.setString(5, aluno.getFone());
             ps.setDate(6, aluno.getData_nascimento());
-            ps.setInt(7, 1);
+            ps.setInt(7, 2);
 
             ps.execute();
             ps.close();
