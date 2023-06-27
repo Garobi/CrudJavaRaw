@@ -8,7 +8,7 @@ public class FrameInicial extends JPanel {
   public JPanel telaInicial(Container Window) {
     JPanel painel = new JPanel();
     painel.setLayout(null);
-    painel.setBounds(0, 0, 800, 720);
+    painel.setBounds(0, 0, 800, 1020);
 
     PainelAluno painelAluno = new PainelAluno();
     PainelProfessor painelProfessor = new PainelProfessor();
@@ -18,6 +18,8 @@ public class FrameInicial extends JPanel {
     PainelMatricularAluno painelMatricularAluno = new PainelMatricularAluno();
     PainelRemoveAluno painelRemoveAluno = new PainelRemoveAluno();
     PainelRemoveProfessor painelRemoveProfessor = new PainelRemoveProfessor();
+    PainelEditarAluno painelEditarAluno = new PainelEditarAluno();
+    PainelEditarProfessor painelEditarProfessor = new PainelEditarProfessor();
 
     JButton cadastrarAluno = new JButton("Cadastrar Aluno");
     cadastrarAluno.setBounds(20, 20, 200, 200);
@@ -123,6 +125,32 @@ public class FrameInicial extends JPanel {
       }
     });
     painel.add(removerProfessor);
+
+    JButton editarAluno = new JButton("Editar Aluno");
+    editarAluno.setBounds(460, 460, 200, 200);
+    editarAluno.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(java.awt.event.ActionEvent event) {
+        Window.add(painelEditarAluno.iniciaComponentAluno(Window));
+        Window.remove(Window.getComponent(0));
+        Window.revalidate();
+        Window.repaint();
+      }
+    });
+    painel.add(editarAluno);
+
+    JButton editarProfessor = new JButton("Editar Professor");
+    editarProfessor.setBounds(20, 680, 200, 200);
+    editarProfessor.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(java.awt.event.ActionEvent event) {
+        Window.add(painelEditarProfessor.iniciaComponentProfessor(Window));
+        Window.remove(Window.getComponent(0));
+        Window.revalidate();
+        Window.repaint();
+      }
+    });
+    painel.add(editarProfessor);
 
     return painel;
   }
