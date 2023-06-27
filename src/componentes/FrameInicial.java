@@ -20,6 +20,7 @@ public class FrameInicial extends JPanel {
     PainelRemoveProfessor painelRemoveProfessor = new PainelRemoveProfessor();
     PainelEditarAluno painelEditarAluno = new PainelEditarAluno();
     PainelEditarProfessor painelEditarProfessor = new PainelEditarProfessor();
+    PainelLerAluno painelLerAluno = new PainelLerAluno();
 
     JButton cadastrarAluno = new JButton("Cadastrar Aluno");
     cadastrarAluno.setBounds(20, 20, 200, 200);
@@ -151,6 +152,19 @@ public class FrameInicial extends JPanel {
       }
     });
     painel.add(editarProfessor);
+
+    JButton lerAluno = new JButton("Ler Aluno");
+    lerAluno.setBounds(240, 680, 200, 200);
+    lerAluno.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(java.awt.event.ActionEvent event) {
+        Window.add(painelLerAluno.IniciaComponenteLerAluno(Window));
+        Window.remove(Window.getComponent(0));
+        Window.revalidate();
+        Window.repaint();
+      }
+    });
+    painel.add(lerAluno);
 
     return painel;
   }
